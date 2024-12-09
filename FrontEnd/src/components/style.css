@@ -3,8 +3,19 @@
 :root {
   --nav-font: #fff;
   --nav-bg: rgb(0, 0, 0);
+  --flash : red;
+  --sale: black;
 }
-
+.list-header{
+  padding: 2%;
+}
+#flash{
+  background-color: var(--flash);
+}
+#sale{
+  background-color: var(--sale);
+  color: var(--nav-font);
+}
 * {
   font-family: "Kanit", serif;
   font-style: normal;
@@ -14,13 +25,14 @@
 }
 
 .container {
+    background-color: black;
   display: grid;
   grid-template-areas:
     "Navbar content content content"
     "Navbar content content content"
     "Navbar content content content"
     "Navbar content content content";
-  grid-template-rows: auto 1fr;
+  
   height: 100vh;
   width: 100vw;
 
@@ -29,15 +41,18 @@
 /* Navbar Section */
 
 .nav-sec {
-  grid-area: Navbar;
-  background-color: var(--nav-bg);
-  color: var(--nav-font);
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  width: 24%;
-  height: 100%;
-}
+    grid-area: Navbar;
+    background-color: rgb(0, 0, 0);
+    color: var(--nav-font);
+    display: flex;
+    justify-content: space-between;
+    /* สำคัญมากสำหรับเเยกcontent */
+    position: sticky;  
+    top: 0;  
+    height: 100vh;
+    width: 20vw;
+  }
+  
 .nav{
   list-style: none;
   display: flex;
@@ -45,12 +60,13 @@
   width: 100%;
   justify-content: flex-start;
   gap: 10px;
+  margin-left: 10%;
+  margin-top: 20%;
 }
 
 .nav-item,.nav-item-now{
     gap: 20px;
-    width: 90%;
-    border-radius: 5%;
+    width: 80%;
     height: 10vh;
     display: flex;
     transition: 1s;
@@ -60,11 +76,12 @@
     margin-left: 5%;
 }
 .nav-item-now{
-    background-color: rgb(255, 255, 120);
+    background-color: red;
     color: black;
 }
 .nav-item:hover{
-    background-color: rgb(255, 255, 120);
+    background-color: red;
+    color: black;
 }
 .content-sec {
   grid-area: content;
@@ -73,4 +90,64 @@
   overflow-y: auto;
   width: 100%;
   height: 100%;
+}
+
+/* Main content grid */
+.content {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  grid-template-areas: 
+    "card card card card";
+  grid-gap: 10px; /* เพิ่มระยะห่างระหว่างการ์ด */
+  grid-template-rows: repeat(4, auto); /* ทำให้แต่ละแถวมีความสูงอัตโนมัติ */
+}
+
+@media only screen and (max-width: 1120px) {
+.content {
+  grid-template-areas: 
+    "card card card";
+  grid-template-rows: auto;
+}
+}
+
+/* การ์ด */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 8px solid red;
+  border-radius: 10px;
+  width: 80%;
+  height: 100%; /* ปรับให้การ์ดใช้พื้นที่เต็มที่ */
+  margin: 0 auto; /* ให้การ์ดจัดกลางในกริด */
+  padding: 10%;
+  
+}
+
+/* การ์ดเมื่อ hover */
+.card:hover {
+  -webkit-box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+  transition: 0.7s;
+}
+
+/* ปรับขนาดของภาพในการ์ด */
+.card img {
+  width: 40%;
+  height:40%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.buy-btn{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 2%;
+}
+.buy-btn:hover{
+  transform: scale(1.05);  /* เพิ่มขนาดปุ่มเล็กน้อยโดยไม่ทำให้ layout เปลี่ยน */
+  background-color: rgb(214, 114, 114);
+  transition: 0.6s;
 }

@@ -1,5 +1,5 @@
 import Navbar from "./Nav";
-import List from "./List"
+import List from "./list";
 function Home() {
   return (
     <div className="container">
@@ -7,6 +7,9 @@ function Home() {
         <Navbar/>
       </div>
       <div className="content-sec">
+        <div className="list-header">
+           <h1><span id="flash">Flash </span><span id="sale">Sale</span></h1>
+        </div>
          <List/>
       </div>
     </div>
