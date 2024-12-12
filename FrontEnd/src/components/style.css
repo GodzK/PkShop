@@ -23,7 +23,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+a{
+  color: white;
+  list-style: none;
+  text-decoration: none;
+}
 .container {
     background-color: black;
   display: grid;
@@ -32,7 +36,6 @@
     "Navbar content content content"
     "Navbar content content content"
     "Navbar content content content";
-  
   height: 100vh;
   width: 100vw;
 
@@ -91,7 +94,10 @@
   width: 100%;
   height: 100%;
 }
-
+.cart-div{
+  background-color: red;
+  position: absolute;
+}
 /* Main content grid */
 .content {
   display: grid;
@@ -104,14 +110,20 @@
   grid-template-rows: repeat(4, auto); /* ทำให้แต่ละแถวมีความสูงอัตโนมัติ */
 }
 
-@media only screen and (max-width: 1120px) {
+@media only screen and (max-width: 1620px) {
 .content {
   grid-template-areas: 
-    "card card card";
+    "card card ";
   grid-template-rows: auto;
 }
 }
-
+@media only screen and (max-width: 1220px) {
+  .content {
+    grid-template-areas: 
+      "card ";
+    grid-template-rows: auto;
+  }
+  }
 /* การ์ด */
 .card {
   display: flex;
@@ -150,4 +162,17 @@
   transform: scale(1.05);  /* เพิ่มขนาดปุ่มเล็กน้อยโดยไม่ทำให้ layout เปลี่ยน */
   background-color: rgb(214, 114, 114);
   transition: 0.6s;
+}
+
+.buy-btn {
+  background-color: #e98800d0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buy-btn:hover {
+  background-color: #ff4d00;
 }
