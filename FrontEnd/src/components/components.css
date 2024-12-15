@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.content-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ขนาดคอลัมน์ยืดหยุ่น */
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  width: 100%; /* ทำให้ card ขยายเต็มพื้นที่ของ grid */
+  transition: transform 0.3s ease-in-out; /* การเปลี่ยนแปลงขนาด */
+}
+
+.card:hover {
+  transform: scale(1.1); /* ขยายเมื่อ hover */
+}
