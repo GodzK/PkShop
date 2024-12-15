@@ -2,6 +2,12 @@ const express = require("express")
 const port = 8777
 const mongoose = require("mongoose")
 const app = express()
+const cors = require("cors");
+
+app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173" // อนุญาตเฉพาะ React app
+}));
 
 app.use(express.json())
 mongoose.connect("mongodb://localhost:27017/PhakapholDB").then(()=>{
@@ -15,7 +21,7 @@ const NewSchema = new mongoose.Schema(
     {
         username : String,
         password : String,
-        buyinglist: Array
+        buyinglist: Number,
     }
 )
 const PkShopDB = mongoose.model("PkShopDB",NewSchema)
@@ -26,6 +32,7 @@ app.post("/pkshop",async(req,res)=>{
         const user = new PkShopDB({
             username : userinp.username,
             password : userinp.password,
+            buyinglist: userinp.buyinglist,
         });
         await user.save();
         res.status(201).json({
