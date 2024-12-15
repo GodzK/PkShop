@@ -1,5 +1,5 @@
 const express = require("express")
-const port = 8080
+const port = 8777
 const mongoose = require("mongoose")
 const app = express()
 
@@ -54,7 +54,7 @@ app.get("/pkshop", async (req, res) => {
         });
     }
 });app.listen(port,async()=>{
-    console.log("App listening to port 8080")
+    console.log("App listening to port 8777")
 })
 
 app.get("/pkshop/:username",async(req,res)=>{

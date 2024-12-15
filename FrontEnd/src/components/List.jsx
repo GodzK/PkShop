@@ -3,9 +3,8 @@ import pubg from "../assets/pubg.png";
 import ragnarok from "../assets/ragnarok.jpg";
 import hsr from "../assets/hsr.png";
 import roblox from "../assets/roblox.png";
-import { useState } from "react";
 
-function List({ counter, setCount ,cart , setCart}) {
+function List() {
   const products = [
     { img: roblox, price: "100 Robux", value: "robux" },
     { img: fifa, price: "100 Coupon", value: "Fifa" },
@@ -16,7 +15,7 @@ function List({ counter, setCount ,cart , setCart}) {
 
   function Addcard(productValue) {
     console.log(productValue);
-    setCount(counter + 1);
+
   }
   
 

@@ -1,10 +1,10 @@
 import Navbar from "./Nav";
-function Cart({ counter, setCount }) {
+function Cart() {
   
   return (
     <div className="container">
     <div className="nav-sec">
-        <Navbar counter={counter} />
+        <Navbar/>
     </div>
     <div className="content-sec">
       <h1>Say hi</h1>  
