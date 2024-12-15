@@ -5,6 +5,7 @@ import "./components/Home.jsx"
 import Login from './components/Login.jsx';
 import Home from './components/Home.jsx'
 import Cart from './components/Cart.jsx';
+import Register from './components/Register.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')).render(
   <Route path="/login" element={<Login/>} />
   <Route path="/" element={<Home/>} />
   <Route path="/Cart" element={<Cart/>} />
+  <Route path="/register" element={<Register/>} />
   </Routes>
 </BrowserRouter>
   </StrictMode>,
