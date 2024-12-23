@@ -1,40 +1,64 @@
-import fifa from "../assets/fifa.jpg";
-import pubg from "../assets/pubg.png";
-import ragnarok from "../assets/ragnarok.jpg";
-import hsr from "../assets/hsr.png";
-import roblox from "../assets/roblox.png";
-
+import React, { useEffect, useState } from "react";
+import "./components.css";
+import Nav from "../components/Nav";
+import axios from "axios";
+import Swal from "sweetalert2";
+import mockData from "../../../BackEnd/Data";
 function List() {
-  const products = [
-    { img: roblox, price: "100 Robux", value: "robux" },
-    { img: fifa, price: "100 Coupon", value: "Fifa" },
-    { img: hsr, price: "1600 stellar jade", value: "hsr" },
-    { img: ragnarok, price: "100 gold", value: "ragnarok" },
-    { img: pubg, price: "100 vc", value: "pubg" },
-  ];
+  const [cartItems, setCartItems] = useState([]);
 
-  function Addcard(productValue) {
-    console.log(productValue);
-
-  }
-  
+  useEffect(() => {
+    axios
+      .get("http://localhost:8777/cart")
+      .then((response) => {
+        setCartItems(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching cart items:", error);
+      });
+  }, []);
+function Thank(){
+  Swal.fire({
+            title: `Thanks For Support`,
+            text: "See You Soon",
+            icon: "success",
+          });
+}
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.buyinglist, 0);
 
   return (
-    <div className="content">
-      {products.map((product, index) => (
-        <div className="card" key={index}>
-          <img src={product.img} alt="" />
-          <p>{product.price}</p>
-          <button
-            className="buy-btn"
-            value={product.value}
-            onClick={(e) => Addcard(e.target.value)}
-          >
-            Buy it now!
+    <>
+     <Nav />
+      <div className="list-container">
+        {/* My Cart Section */}
+        <div className="buying">
+          <h1>My Cart</h1>
+          <div className="buying-list">
+            {cartItems.map((item, index) => (
+              <div className="order" key={index}>
+                {/* Display Item Image */}
+                <div className="order-details">
+                  <h2>{item.title}</h2>
+                  <p>${item.buyinglist.toFixed(2)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Summary Section */}
+        <div className="summary">
+          <h1>📋 Summary</h1>
+          <div className="price">
+            <h3>Subtotal:</h3>
+            <h3>${totalPrice.toFixed(2)}</h3>
+          </div>
+          <button className="btn btn-active btn-primary btn-wide" onClick={Thank}>
+            Checkout
           </button>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
 

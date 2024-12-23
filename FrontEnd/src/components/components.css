@@ -1,27 +1,151 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* list */
+.list-container {
+  width: 98vw;
+  height: 90vh;
+  background-color: #121212; /* พื้นหลังเข้มให้มีสไตล์ทันสมัย */
+  display: grid;
+  grid-template-areas: 
+    "buy buy buy summary";
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.buying {
+  background-color: #1f1f1f; /* สีดำที่ไม่มืดเกินไป */
+  color: white;
+  grid-area: buy;
+  font-size: 6vh;
+  border-radius: 10px; /* มุมมน */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.buying h1 {
+  margin-bottom: 1rem;
+}
+
+.buying-list {
+  display: flex;
+  flex-wrap: wrap; /* ให้รองรับหลายรายการ */
+  gap: 1rem;
+}
+
+.order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 30vh;
+  background: linear-gradient(145deg, #333333, #1a1a1a); /* พื้นหลังแบบ gradient */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.summary {
+  width: 100%;
+  height: 100%;
+  background-color: #232323;
+  grid-area: summary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  color: white;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem 0;
+  border-top: 2px solid #444;
+  padding-top: 1rem;
+}
+
+.price h3 {
+  font-size: 1.5rem;
+  color: #b3b3b3; /* ใช้สีเทาอ่อน */
+}
+
+.summary h1 {
+  font-size: 4vh;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* เพิ่มแอนิเมชันเมื่อ hover */
+}
 
 .content-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ขนาดคอลัมน์ยืดหยุ่น */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
 }
 
+/* เพิ่มแอนิเมชัน */
+.list-container, .buying, .order, .summary {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1,h2,h3{
+  color: white;
+}
+p{
+  color: rgb(169, 169, 169);
+}
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: rgb(40, 40, 40);
 }
 
 .card {
   width: 100%; /* ทำให้ card ขยายเต็มพื้นที่ของ grid */
+  object-fit: cover;
   transition: transform 0.3s ease-in-out; /* การเปลี่ยนแปลงขนาด */
+  background-color: rgb(86, 86, 86);
 }
-
+.card img{
+  width: 50vw;
+  height: 10vw;
+}
 .card:hover {
   transform: scale(1.1); /* ขยายเมื่อ hover */
 }
