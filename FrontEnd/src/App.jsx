@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Content from "./components/content";
 function App() {
   return (
-    <>
+    <div className="all">
       <div className="container">
         <Nav />
         <div className="content">
@@ -11,7 +11,7 @@ function App() {
           <Content />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
