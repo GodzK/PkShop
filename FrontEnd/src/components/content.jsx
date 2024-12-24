@@ -21,6 +21,7 @@ function Content() {
       });
   }, []);
 
+  
   // Function to handle the Buying process
   function Buying(item) {
     const { title, price } = item;

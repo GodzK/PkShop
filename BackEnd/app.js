@@ -29,6 +29,12 @@ const NewSchema = new mongoose.Schema({
 });
 const PkShopDB = mongoose.model("PkShopDB", NewSchema);
 
+
+
+app.delete("/add" , async(req,res)=>{
+  const {title , price} = req.body;
+  
+})
 // Add to Cart API
 app.post("/add", async (req, res) => {
   const { title, price } = req.body;
@@ -64,6 +70,28 @@ app.get("/cart", async (req, res) => {
   }
 });
 
+
+
+//Delete Cart Item
+app.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // ลบรายการที่ตรงกับ id
+    const deletedItem = await PkShopDB.findByIdAndDelete(id);
+
+    if (!deletedItem) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
+    res.status(200).json({ message: "Item deleted successfully", item: deletedItem });
+  } catch (error) {
+    console.error("Error deleting item:", error);
+    res.status(500).json({ message: "Error deleting item", error });
+  }
+});
+
+
 // Root API
 app.get("/", (req, res) => {
   res.send("Connected to Backend");
@@ -71,6 +99,7 @@ app.get("/", (req, res) => {
 app.get("/pkshop", (req, res) => {
   res.status(200).json(mockData);
 });
+
 // Start Server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
