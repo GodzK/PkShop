@@ -10,7 +10,6 @@ function App() {
         <Nav/>
         <div className="content">
         <Teaser />
-          <h1 style={{fontSize:"3vw"}}>Our Game is Here</h1>
           <Content/>
         </div>
       </div>

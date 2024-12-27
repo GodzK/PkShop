@@ -29,10 +29,8 @@ const NewSchema = new mongoose.Schema({
 });
 const PkShopDB = mongoose.model("PkShopDB", NewSchema);
 
-
-
-app.delete("/add" , async(req,res)=>{
-  const {title , price} = req.body;
+// Login API
+app.get("/login",async(req,res)=>{
   
 })
 // Add to Cart API
@@ -45,7 +43,8 @@ app.post("/add", async (req, res) => {
 
   try {
     const newItem = new PkShopDB({
-      username: "Guest",
+      //Username login
+      username: "",
       password: "",
       title,
       buyinglist: price,

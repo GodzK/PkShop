@@ -56,7 +56,7 @@ function List() {
       <div className="list-container">
         {/* My Cart Section */}
         <div className="buying">
-          <h1>My Cart</h1>
+          <h1>Your Shopping Cart</h1>
           <div className="buying-list">
             {cartItems.map((item, index) => (
               <div className="order" key={index}>

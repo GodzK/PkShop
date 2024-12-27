@@ -79,9 +79,9 @@ video{
 
 /* list */
 .list-container {
-  width: 98vw;
-  height: 90vh;
-  background-color: #121212; /* พื้นหลังเข้มให้มีสไตล์ทันสมัย */
+  width: 100vw;
+  height: 93vh;
+  background-color: #000000; /* พื้นหลังเข้มให้มีสไตล์ทันสมัย */
   display: grid;
   grid-template-areas: 
     "buy buy buy summary";
@@ -115,7 +115,7 @@ video{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30vw;
+  width: 20vw;
   height: 30vh;
   background: linear-gradient(145deg, #333333, #1a1a1a); /* พื้นหลังแบบ gradient */
   border-radius: 10px;
@@ -183,6 +183,7 @@ button:hover {
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
+  padding-top: 8vh;
 }
 
 /* เพิ่มแอนิเมชัน */

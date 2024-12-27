@@ -7,7 +7,7 @@ import scum from "../FrontEnd/src/assets/scum.jpg";
 import gos from "../FrontEnd/src/assets/gos.jpg";
 import rdr2 from "../FrontEnd/src/assets/rdr2.png";
 import gow from "../FrontEnd/src/assets/gow.jpg";
-import Teaser from "../FrontEnd/src/assets/Video/teaser1.mp4"
+import stardew from "../FrontEnd/src/assets/stardew.jpg";
 const mockData = [
     {
         id: 1,
@@ -80,6 +80,14 @@ const mockData = [
         description: "The continuation of Kratos' journey in the world of Norse mythology, with intense combat and a powerful story.",
         imageUrl: gow,
         price: "69.99$",
+        teaser: false
+    },
+    {
+        id: 10,
+        title: "Stardew Valley",
+        description: "You've inherited your grandfather's old farm plot in Stardew Valley.Can you learn to live off the land and turn these overgrown fields into a thriving home?",
+        imageUrl: stardew,
+        price: "9.00$",
         teaser: false
     }
 ];
