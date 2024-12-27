@@ -138,13 +138,16 @@ p{
 
 .card {
   width: 100%; /* ทำให้ card ขยายเต็มพื้นที่ของ grid */
+  height: 50vh;
   object-fit: cover;
   transition: transform 0.3s ease-in-out; /* การเปลี่ยนแปลงขนาด */
   background-color: rgb(86, 86, 86);
+  
 }
 .card img{
-  width: 50vw;
-  height: 10vw;
+  width: 100%; /* ทำให้รูปภาพเต็มความกว้างของ card */
+    height: 200px; /* กำหนดความสูงคงที่ */
+    object-fit: cover; /* ปรับให้รูปภาพครอบคลุมพื้นที่โดยไม่เสียอัตราส่วน */
 }
 .card:hover {
   transform: scale(1.1); /* ขยายเมื่อ hover */
