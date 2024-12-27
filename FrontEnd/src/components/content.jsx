@@ -1,12 +1,13 @@
 import "./components.css";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef } from "react";
 import mockData from "../../../BackEnd/Data"; // Ensure this path is correct
 
 
 function Content() {
   const [usernames, setUsernames] = useState([]);
+  const cardRefs = useRef([]);
 
   // Fetch data from the API
   useEffect(() => {
