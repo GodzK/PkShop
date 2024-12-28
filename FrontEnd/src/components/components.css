@@ -1,24 +1,85 @@
 /* login */
-.login-sec {
-  width: 100%;
-  min-height: 93vh;
-  background-color: #1f1f1f;
+.login {
+  background-color: #000000;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-input{
-  color: black;
-}
-.login-card {
-  width: 100%;
-  padding: 40px;
-  background-color: #444;
-  color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.login-form {
+  background-color: #1a1a1a; /* สีพื้นหลังสำหรับ card */
+  padding: 30px;
+  border-radius: 10px;
+  width: 50vw; 
+  height: 30vw; 
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5); /* เงาด้านนอก */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
 }
 
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* สไตล์สำหรับ input */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+/* ปุ่มสำหรับ login */
+.login-btn {
+  background-color: #229c12;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: center; 
+  width: 40%;
+}
+.login-sec{
+  width: 49vw;
+  display: flex;
+  justify-content: center;
+}
+.login-btn:hover {
+  background-color: #00521f;
+}
+
+.login-btn:focus {
+  outline: none;
+}
+
+
+.text-center {
+  text-align: center;
+  margin-top: 10px;
+}
 
 
 @media (max-width: 768px) {

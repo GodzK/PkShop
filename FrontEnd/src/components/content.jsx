@@ -1,6 +1,7 @@
 import "./components.css";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Nav from "../components/Nav";
 import { useEffect, useState , useRef } from "react";
 import mockData from "../../../BackEnd/Data"; // Ensure this path is correct
 
@@ -24,31 +25,42 @@ function Content() {
 
   
   // Function to handle the Buying process
-  function Buying(item) {
-    const { title, price } = item;
-  
-    // Convert price to a number (remove the "$" and parse it)
-    const numericPrice = parseFloat(price.replace("$", ""));
-  
-    axios
-      .post("http://localhost:8777/add", { title, price: numericPrice })
-      .then((response) => {
+  // Function to handle the Buying process
+function Buying(item) {
+  const { title, price } = item;
+
+  // Convert price to a number (remove the "$" and parse it)
+  const numericPrice = parseFloat(price.replace("$", ""));
+
+  axios
+    .post("http://localhost:8777/add", { title, price: numericPrice })
+    .then((response) => {
+      Swal.fire({
+        title: `${title} added to the cart!`,
+        text: "Thanks for buying",
+        icon: "success",
+      });
+      console.log("Response:", response.data);
+    })
+    .catch((error) => {
+      if (error.response && error.response.data.message === "Already have this game in cart!") {
         Swal.fire({
-          title: `${title} added to the cart!`,
-          text: "Thanks for buying",
-          icon: "success",
+          title: "Error",
+          text: "Your Game is already in the cart!!",
+          icon: "error",
         });
-        console.log("Response:", response.data);
-      })
-      .catch((error) => {
+      } else {
         Swal.fire({
           title: "Error",
           text: "Unable to add item to the cart.",
           icon: "error",
         });
-        console.error("Error adding to cart:", error);
-      });
-  }
+      }
+
+      console.error("Error adding to cart:", error);
+    });
+}
+
   
   return (
     <div className="content-container">

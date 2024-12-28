@@ -17,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/PhakapholDB", {
 }).then(() => {
   console.log("Connected to MongoDB");
 }).catch(err => {
-  console.error("Failed to connect to MongoDB:", err);
+  console.error("Failed to connect to MongoDB. Please check your connection string or MongoDB server:", err);
 });
 
 // Schema and Model
@@ -42,12 +42,19 @@ app.post("/add", async (req, res) => {
   }
 
   try {
+    // Await the result of the query
+    const existingitem = await PkShopDB.findOne({ title });
+    
+    if (existingitem) {
+      return res.status(400).json({ message: "Already have this game in cart!" });
+    }
+
     const newItem = new PkShopDB({
-      //Username login
+      // Username login
       username: "",
       password: "",
-      title,
       buyinglist: price,
+      title,
     });
 
     await newItem.save();
