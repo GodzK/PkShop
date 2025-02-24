@@ -1,28 +1,69 @@
-# PkShop - ร้านค้าออนไลน์
+# PkShop - Online Store
 
-PkShop เป็นร้านค้าออนไลน์ที่สร้างขึ้นด้วย React.js ซึ่งออกแบบมาเพื่อให้ผู้ใช้สามารถดูสินค้า เพิ่มสินค้าที่ต้องการลงในตะกร้า และทำการซื้อสินค้า แอปพลิเคชันนี้ใช้ Axios สำหรับการดึงข้อมูลจาก Backend และ SweetAlert สำหรับการแจ้งเตือนต่างๆ
+PkShop is an online store built using React.js, designed to allow users to view products, add desired items to their shopping cart, and make purchases. This application uses Axios to fetch data from the backend and SweetAlert2 to display various notifications.
 
-## ฟีเจอร์หลัก
+## Features
+- View products available for purchase.
+- Add items to the shopping cart.
+- Show product details, including price and description.
+- Notifications when items are added to the cart using SweetAlert.
+- Fully responsive design for both mobile and desktop screens.
 
-- แสดงรายการสินค้าที่สามารถเลือกซื้อได้
-- เพิ่มสินค้าลงในตะกร้า
-- ดูรายการสินค้าในตะกร้า
-- เมนูโปรไฟล์และการตั้งค่า
-- แจ้งเตือนเมื่อมีการเพิ่มสินค้าลงในตะกร้าโดยใช้ SweetAlert
-- รองรับการแสดงผลทั้งบนมือถือและเดสก์ท็อป
+## Technologies Used
+- **React.js**: Frontend framework for building the user interface.
+- **Axios**: To fetch data from the backend.
+- **SweetAlert2**: For displaying notifications such as success or error alerts.
+- **Tailwind CSS**: For styling and designing the components.
+- **Backend**: Simulated API running locally to handle the cart data.
 
-## เทคโนโลยีที่ใช้
+## Setup Instructions
 
-- **React.js**: เฟรมเวิร์กสำหรับพัฒนา Frontend ของแอป
-- **Axios**: ใช้ในการดึงข้อมูลจาก Backend
-- **SweetAlert2**: สำหรับแสดงผลการแจ้งเตือน
-- **Tailwind CSS**: ใช้สำหรับการออกแบบและจัดการสไตล์ขององค์ประกอบต่างๆ
-- **Backend**: ใช้ API จำลองที่รันในเครื่องเพื่อดึงข้อมูลตะกร้า
+To clone and set up the project:
 
-## การติดตั้ง
-
-1. **โคลนโปรเจกต์**:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/GodzK/pkshop.git
+Install necessary dependencies:
 
+Navigate to the project folder and run:
+
+bash
+คัดลอก
+แก้ไข
+npm install
+Start the React app:
+
+Run the following command:
+
+bash
+คัดลอก
+แก้ไข
+npm start
+Backend Setup:
+
+The backend is built with Express.js and MongoDB.
+It supports operations such as adding items to the cart, viewing cart items, and deleting items from the cart.
+Connect the backend:
+
+Ensure your backend server is running. The backend listens on port 8777 by default.
+
+Access the app:
+
+Open your browser and go to http://localhost:5173 to view the app in action.
+
+Backend Routes:
+GET /cart: Fetches all items in the cart.
+POST /add: Adds an item to the cart.
+DELETE /delete/:id: Deletes an item from the cart by ID.
+Demo Screenshots
+You can showcase the interface or screenshots of the app here.
+
+Backend Setup:
+
+Express.js and MongoDB are used to handle requests for adding products, viewing cart items, and deleting items.
+The MongoDB database used is called PhakapholDB, and it stores information about the cart items.
+The backend allows the addition of items to a cart, deletion of items, and retrieval of all cart data.
+typescript
+คัดลอก
+แก้ไข
